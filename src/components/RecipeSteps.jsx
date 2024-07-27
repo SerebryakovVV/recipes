@@ -17,7 +17,7 @@ export default function RecipeSteps({activeRecipe}) {
                 <div className="flex justify-around p-2 mb-8">
 
                     {activeRecipe.timers.map((t)=>{
-                        return <Timer key={Math.random()} name={t.name} hour={t.hour} min={t.min} sec={t.sec}/>
+                        return <Timer name={t.name} hour={t.hour} min={t.min} sec={t.sec}/>
                     })
                     
                 }
@@ -27,7 +27,7 @@ export default function RecipeSteps({activeRecipe}) {
                 <ul>
                         {activeRecipe.steps.map((el)=>{
                             return(
-                                <Step key={Math.random()} el={el}/>
+                                <Step key={el.id} el={el}/>
                             )
                         })}
                 </ul>

@@ -9,7 +9,7 @@ export default function RecipeIngridients({activeRecipe}) {
             <ul className="text-white p-1">
             {activeRecipe.ingridients.map((el)=>{
                 return(
-                    <Ingridient key={Math.random()} el={el}/>
+                    <Ingridient key={el.id} el={el}/>
                 )
             })}
             </ul>

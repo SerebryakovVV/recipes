@@ -9,7 +9,7 @@ export default function RecipeList({recipes, handleSelect, addBtn}) {
             <ul className="p-1">
             {recipes.map((el)=>{
             return(
-                <li className="p-1 border-b border-slate-600 hover:bg-gray-900" onClick={()=>handleSelect(el.id)}>{el.name}</li>
+                <li key={el.id} className="p-1 border-b border-slate-600 hover:bg-gray-900" onClick={()=>handleSelect(el.id)}>{el.name}</li>
             )
         })}
         </ul>

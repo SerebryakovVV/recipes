@@ -25,7 +25,22 @@ export default function AddRecipe(props) {
             localStorage.setItem("recipesDB", "[]");
             oldDB = JSON.parse(localStorage.getItem("recipesDB"));
         }
-        let newRecipe = {id:Date.now().toString(), name:name, ingridients:ingridients.split(";"),steps:steps.split(";"),timers:timers};
+
+
+        let newIngridients = ingridients.split(";").map((el)=>{
+            return {id:Math.random(), name:el}
+        });
+
+        let newSteps = steps.split(";").map((el)=>{
+            return {id:Math.random(), name:el}
+        });
+
+        console.log(newIngridients,newSteps);
+
+        let newRecipe = {id:Date.now().toString(), name:name, ingridients:newIngridients,steps:newSteps,timers:timers};
+        // let newRecipe = {id:Date.now().toString(), name:name, ingridients:ingridients.split(";"),steps:steps.split(";"),timers:timers};
+        
+        
         localStorage.setItem("recipesDB", JSON.stringify([...oldDB, newRecipe]));
         props.setIsAdding(false);
         props.setRecipesDB(JSON.parse(localStorage.getItem("recipesDB")));
